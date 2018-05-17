@@ -1,0 +1,52 @@
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th rowspan="2" class="text-right checkbox-th"><input (click)="onCheckAll()" [(ngModel)]="allSelected" type="checkbox"></th>
+      <th rowspan="2">ID</th>
+      <th rowspan="2">Name</th>
+      <th rowspan="2">Location</th>
+      <th rowspan="2">Office</th>
+      <th colspan="2" class="text-center">Phone</th>
+    </tr>
+    <tr>
+      <th>Office Phone</th>
+      <th>Cell Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let staff of staffs">
+      <td class="text-right">
+        <input [(ngModel)]="staff.selected" type="checkbox">
+      </td>
+      <td>{{staff.id}}</td>
+      <td>
+        <app-editable [(value)]="staff.name" (dblclick)="valueChange(staff)"></app-editable>
+      </td>
+      <td>
+        <app-editable [(value)]="staff.location" (dblclick)="valueChange(staff)"></app-editable>
+      </td>
+      <td>
+        <app-editable [(value)]="staff.office" (dblclick)="valueChange(staff)"></app-editable>
+      </td>
+      <td>
+        <app-editable [(value)]="staff.officePhone" (dblclick)="valueChange(staff)"></app-editable>
+      </td>
+      <td>
+        <app-editable [(value)]="staff.cellPhone" (dblclick)="valueChange(staff)"></app-editable>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div>
+  <button class="btn btn-outline-danger" (click)="onDelete()" [disabled]="!canDelete()">Delete</button>
+
+  <div class="float-right">
+    <button class="btn btn-outline-primary" (click)="onAdd()">Add</button>
+
+    <button class="btn btn-outline-primary ml-2" (click)="onUpdate()">Update</button>
+  </div>
+</div>
+
+<!--<pre>{{staffs | json}}</pre>-->
