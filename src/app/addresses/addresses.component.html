@@ -2,15 +2,27 @@
   <thead>
     <tr>
       <th rowspan="2" class="text-right checkbox-th"><input (click)="onCheckAll()" [(ngModel)]="allSelected" type="checkbox"></th>
-      <th rowspan="2">ID</th>
-      <th rowspan="2">Name</th>
-      <th rowspan="2">Location</th>
-      <th rowspan="2">Office</th>
+      <th rowspan="2" (click)="onSort('id')">
+        ID <app-order-mark [column]="'id'" [orderBy]="orderBy"></app-order-mark>
+      </th>
+      <th rowspan="2" (click)="onSort('name')">
+        Name <app-order-mark [column]="'name'" [orderBy]="orderBy"></app-order-mark>
+      </th>
+      <th rowspan="2" (click)="onSort('location')">
+        Location <app-order-mark [column]="'location'" [orderBy]="orderBy"></app-order-mark>
+      </th>
+      <th rowspan="2" (click)="onSort('office')">
+        Office <app-order-mark [column]="'office'" [orderBy]="orderBy"></app-order-mark>
+      </th>
       <th colspan="2" class="text-center">Phone</th>
     </tr>
     <tr>
-      <th>Office Phone</th>
-      <th>Cell Phone</th>
+      <th (click)="onSort('officePhone')">
+        Office Phone <app-order-mark [column]="'officePhone'" [orderBy]="orderBy"></app-order-mark>
+      </th>
+      <th (click)="onSort('cellPhone')">
+        Cell Phone <app-order-mark [column]="'cellPhone'" [orderBy]="orderBy"></app-order-mark>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -68,10 +80,10 @@
   <button class="btn btn-outline-danger" (click)="onDelete()" [disabled]="!canDelete()">Delete</button>
 
   <div class="float-right">
-    <button class="btn btn-outline-primary" (click)="onAdd()">Add</button>
+    <button class="btn btn-outline-primary" (click)="onAdd()" [disabled]="!canAdd()">Add</button>
 
     <button class="btn btn-outline-primary ml-2" (click)="onUpdate()">Update</button>
   </div>
 </div>
 
-<pre>{{staffs | json}}</pre>
+<!--<pre>{{staffs | json}}</pre>-->

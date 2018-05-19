@@ -10,6 +10,7 @@ import { StaffService } from '../staff.service';
 export class AddressesComponent implements OnInit {
   staffs: Staff[];
   allSelected: boolean;
+  orderBy?: string;
 
   constructor(public staffService: StaffService) { }
 
@@ -20,6 +21,16 @@ export class AddressesComponent implements OnInit {
   getStaffs(): void {
     this.staffService.getStaffs()
       .subscribe(staffs => this.staffs = staffs);
+  }
+
+  onSort(col) {
+    this.orderBy = (this.orderBy !== col) ? col : null;
+
+    if (this.orderBy) {
+      this.staffs = this.staffService.getSortedStaffs(this.orderBy);
+    } else {
+      this.getStaffs();
+    }
   }
 
   valueChange(staff) {
@@ -49,5 +60,9 @@ export class AddressesComponent implements OnInit {
 
   canDelete(): boolean {
     return this.staffService.anySelected();
+  }
+
+  canAdd(): boolean {
+    return !this.orderBy;
   }
 }

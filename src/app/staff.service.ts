@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Staff, STAFFS } from './staff';
 
+function columnToString(col) {
+  return (col || '').toString();
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +16,12 @@ export class StaffService {
 
   getStaffs(): Observable<Staff[]> {
     return of(this.staffs);
+  }
+
+  getSortedStaffs(column: string): Staff[] {
+    return [...this.staffs].sort((a, b) => {
+      return columnToString(a[column]).localeCompare(columnToString(b[column]));
+    });
   }
 
   add(staff: Staff) {

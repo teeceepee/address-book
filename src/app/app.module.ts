@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AddressesComponent } from './addresses/addresses.component';
 import { EditableComponent } from './editable/editable.component';
+import { OrderMarkComponent } from './order-mark/order-mark.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddressesComponent,
-    EditableComponent
+    EditableComponent,
+    OrderMarkComponent,
   ],
   imports: [
     BrowserModule,
