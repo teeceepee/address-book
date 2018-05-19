@@ -21,7 +21,7 @@ export class StaffService {
   update() {
     const touchedStaffs = this.staffs.filter(staff => staff.touched);
 
-    alert(JSON.stringify(touchedStaffs));
+    this.displayTouched(touchedStaffs);
 
 
     let nextId = this.currentId() + 1;
@@ -56,5 +56,17 @@ export class StaffService {
 
   currentId() {
     return Math.max.apply(Math, this.staffs.map(staff => staff.id || 0) );
+  }
+
+  displayTouched(staffs) {
+    const array = staffs.map(staff => {
+      const s = {...staff};
+      delete s.selected;
+      delete s.touched;
+
+      return s;
+    });
+
+    alert(JSON.stringify(array));
   }
 }

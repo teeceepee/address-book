@@ -1,13 +1,14 @@
-<div *ngIf="readonly" (dblclick)="onDoubleClick()" class="editable-wrapper">
-  {{value}}
-</div>
-<div *ngIf="!readonly" (dblclick)="onDoubleClick()" class="editable-wrapper">
+<div *ngIf="canEdit(); else elseContent" (dblclick)="onDoubleClick()" class="editable-wrapper">
   <input
     [value]="value"
     (input)="onInput($event)"
-    [readonly]="readonly"
     type="text"
     class="editable"
   >
 </div>
 
+<ng-template #elseContent>
+  <div (dblclick)="onDoubleClick()" class="editable-wrapper">
+    {{value}}
+  </div>
+</ng-template>

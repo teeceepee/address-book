@@ -2,7 +2,8 @@
 export class Staff {
   touched?: boolean;
   selected?: boolean;
-  id: number;
+
+  id?: number;
   name = '';
   location = '';
   office = '';

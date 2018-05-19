@@ -1,4 +1,4 @@
-<table class="table table-bordered table-hover">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th rowspan="2" class="text-right checkbox-th"><input (click)="onCheckAll()" [(ngModel)]="allSelected" type="checkbox"></th>
@@ -20,19 +20,44 @@
       </td>
       <td>{{staff.id}}</td>
       <td>
-        <app-editable [(value)]="staff.name" (dblclick)="valueChange(staff)"></app-editable>
+        <app-editable
+          [(value)]="staff.name"
+          [touched]="staff.touched"
+          (dblclick)="valueChange(staff)"
+        >
+        </app-editable>
       </td>
       <td>
-        <app-editable [(value)]="staff.location" (dblclick)="valueChange(staff)"></app-editable>
+        <app-editable
+          [(value)]="staff.location"
+          [touched]="staff.touched"
+          (dblclick)="valueChange(staff)"
+        >
+        </app-editable>
       </td>
       <td>
-        <app-editable [(value)]="staff.office" (dblclick)="valueChange(staff)"></app-editable>
+        <app-editable
+          [(value)]="staff.office"
+          [touched]="staff.touched"
+          (dblclick)="valueChange(staff)"
+        >
+        </app-editable>
       </td>
       <td>
-        <app-editable [(value)]="staff.officePhone" (dblclick)="valueChange(staff)"></app-editable>
+        <app-editable
+          [(value)]="staff.officePhone"
+          [touched]="staff.touched"
+          (dblclick)="valueChange(staff)"
+        >
+        </app-editable>
       </td>
       <td>
-        <app-editable [(value)]="staff.cellPhone" (dblclick)="valueChange(staff)"></app-editable>
+        <app-editable
+          [(value)]="staff.cellPhone"
+          [touched]="staff.touched"
+          (dblclick)="valueChange(staff)"
+        >
+        </app-editable>
       </td>
     </tr>
   </tbody>
@@ -49,4 +74,4 @@
   </div>
 </div>
 
-<!--<pre>{{staffs | json}}</pre>-->
+<pre>{{staffs | json}}</pre>
