@@ -1,0 +1,13 @@
+{
+  "addressBook": "Address Book",
+  "id": "ID",
+  "name": "Name",
+  "location": "Location",
+  "office": "Office",
+  "phone": "Phone",
+  "officePhone": "Office Phone",
+  "cellPhone": "Cell Phone",
+  "delete": "Delete",
+  "add": "Add",
+  "update": "Update"
+}

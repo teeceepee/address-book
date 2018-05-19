@@ -1,6 +1,13 @@
 <div class="container">
-  <h1>Address Book</h1>
+  <div class="d-flex pt-3">
+    <h1>{{'addressBook' | translate}}</h1>
+    <div class="ml-auto d-flex">
+      <div class="btn-group align-items-center">
+        <button (click)="useLanguage('en')" type="button" class="btn btn-outline-secondary btn-sm">EN</button>
+        <button (click)="useLanguage('zh')" type="button" class="btn btn-outline-secondary btn-sm">中</button>
+      </div>
+    </div>
+  </div>
 
   <app-addresses></app-addresses>
 </div>
-
